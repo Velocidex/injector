@@ -1,0 +1,9 @@
+pkg: assets
+
+dest: "assets"
+compression:
+    compress: true
+
+custom:
+  - files:
+      - "CSDump.bin"
