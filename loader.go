@@ -81,7 +81,7 @@ var (
 
 func main() {
 
-	assets.Init()
+	//	assets.Init()
 
 	app.HelpFlag.Short('h')
 	app.UsageTemplate(kingpin.CompactUsageTemplate)
