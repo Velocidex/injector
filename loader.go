@@ -3,6 +3,7 @@ package main
 //go:generate fileb0x b0x.yaml
 
 import (
+	"encoding/base64"
 	"fmt"
 	"log"
 	"os"
@@ -115,7 +116,14 @@ func main() {
 
 	fmt.Printf("Opened process %v: %v\n", *pid, hProc)
 
-	data, err := assets.ReadFile("CSDump.bin")
+	enc_data, err := assets.ReadFile("CSDump.bin")
+	if err != nil {
+		log.Panic(err)
+	}
+
+	// Decode the base64 data
+	data, err := base64.StdEncoding.DecodeString(
+		string(enc_data))
 	if err != nil {
 		log.Panic(err)
 	}
